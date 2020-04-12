@@ -1,11 +1,13 @@
 # imports 
 from flask import Flask, request, jsonify
 from flask_restful import Resource, Api
+from flask_cors import CORS
 import json
 
 ## global variables
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
 
 ## declaration for the '/registerUser' endpoint
 class RegisterUser(Resource) :
@@ -13,7 +15,7 @@ class RegisterUser(Resource) :
   def get(self):
     # get url query parameters
     firstName = request.args.get('firstName')
-    lastname = request.args.get('lastName')
+    lastName = request.args.get('lastName')
     phoneNumber = request.args.get('phoneNumber')
     email = request.args.get('emailAddress')
     boxAddress = request.args.get('boxAddress')
@@ -21,9 +23,9 @@ class RegisterUser(Resource) :
     resp = {
       'statusMsg' : 'account sucessfuly recieved',
       'firstName' : firstName,
-      'lastname' : lastname,
+      'lastName' : lastName,
       'phoneNumber' : phoneNumber,
-      'email' : email,
+      'emailAddress' : email,
       'boxAddress' : boxAddress
     }
 
@@ -40,7 +42,7 @@ class RegisterUser(Resource) :
     reqPayload = request.get_json(force=True)
 
     firstName = reqPayload['firstName']
-    lastname = reqPayload['lastName']
+    lastName = reqPayload['lastName']
     phoneNumber = reqPayload['phoneNumber']
     email = reqPayload['emailAddress']
     boxAddress = reqPayload['boxAddress']
@@ -48,9 +50,9 @@ class RegisterUser(Resource) :
     resp = {
       'statusMsg' : 'account sucessfuly recieved',
       'firstName' : firstName,
-      'lastname' : lastname,
+      'lastname' : lastName,
       'phoneNumber' : phoneNumber,
-      'email' : email,
+      'emailAddress' : email,
       'boxAddress' : boxAddress
     }
 
