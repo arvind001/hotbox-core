@@ -33,7 +33,7 @@ python-dateutil==2.6.1
 pytz==2019.3
 pywin32-ctypes==0.1.2
 ratelim==0.1.6
-requests==2.18.1
+requests==2.20.0
 requests-oauthlib==0.8.0
 six==1.10.0
 urllib3==1.21.1
