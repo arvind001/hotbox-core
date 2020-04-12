@@ -12,10 +12,10 @@ class RegisterUser(Resource) :
   ## '/registerUser' GET request
   def get(self):
     # get url query parameters
-    firstName = request.args.get('firstname')
-    lastname = request.args.get('lastname')
+    firstName = request.args.get('firstName')
+    lastname = request.args.get('lastName')
     phoneNumber = request.args.get('phoneNumber')
-    email = request.args.get('email')
+    email = request.args.get('emailAddress')
     boxAddress = request.args.get('boxAddress')
 
     resp = {
@@ -39,10 +39,10 @@ class RegisterUser(Resource) :
     # get request payload data
     reqPayload = request.get_json(force=True)
 
-    firstName = reqPayload['firstname']
-    lastname = reqPayload['lastname']
+    firstName = reqPayload['firstName']
+    lastname = reqPayload['lastName']
     phoneNumber = reqPayload['phoneNumber']
-    email = reqPayload['email']
+    email = reqPayload['emailAddress']
     boxAddress = reqPayload['boxAddress']
 
     resp = {
