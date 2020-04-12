@@ -2,12 +2,34 @@
 from flask import Flask, request, jsonify
 from flask_restful import Resource, Api
 from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
+from flask_script import Manager
+from flask_migrate import Migrate, MigrateCommand
 import json
 
 ## global variables
 app = Flask(__name__)
 api = Api(app)
 CORS(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/hotboxdb'
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+manager = Manager(app)
+manager.add_command('db', MigrateCommand)
+
+class BoxPost(db.Model):
+    firstName = db.Column(db.String(), primary_key=True)
+    lastName = db.Column(db.String())
+    phoneNumber = db.Column(db.String())
+    emailAddress = db.Column(db.String())
+    boxAddress = db.Column(db.String())
+    
+    def __init__(self, firstName, lastName, phoneNumber, emailAddress, boxAddress):
+        self.firstName = firstName
+        self.lastName = lastName
+        self.phoneNumber = phoneNumber
+        self.emailAddress = emailAddress
+        self.boxAddress = boxAddress
 
 ## declaration for the '/registerUser' endpoint
 class RegisterUser(Resource) :
@@ -69,4 +91,6 @@ api.add_resource(RegisterUser, '/registerUser')
 
 ## main function
 if __name__ == '__main__':
-  app.run(debug=True)
+  manager.run()
+
+  # app.run(debug=True)
