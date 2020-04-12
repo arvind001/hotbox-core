@@ -14,7 +14,7 @@ Flask-GoogleMaps==0.2.4
 Flask-RESTful==0.3.8
 geocoder==1.23.2
 googlemaps==2.5.1
-gunicorn==19.3.0
+gunicorn==19.5.0
 httplib2==0.10.3
 idna==2.5
 isodate==0.5.4
