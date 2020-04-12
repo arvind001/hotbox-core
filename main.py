@@ -11,6 +11,7 @@ api = Api(app)
 class RegisterUser(Resource) :
   ## '/registerUser' GET request
   def get(self):
+    # get url query parameters
     firstName = request.args.get('firstname')
     lastname = request.args.get('lastname')
     phoneNumber = request.args.get('phoneNumber')
@@ -35,11 +36,14 @@ class RegisterUser(Resource) :
 
   ## '/registerUser' POST request
   def post(self):
-    firstName = request.args.get('firstname')
-    lastname = request.args.get('lastname')
-    phoneNumber = request.args.get('phoneNumber')
-    email = request.args.get('email')
-    boxAddress = request.args.get('boxAddress')
+    # get request payload data
+    reqPayload = request.get_json(force=True)
+
+    firstName = reqPayload['firstname']
+    lastname = reqPayload['lastname']
+    phoneNumber = reqPayload['phoneNumber']
+    email = reqPayload['email']
+    boxAddress = reqPayload['boxAddress']
 
     resp = {
       'statusMsg' : 'account sucessfuly recieved',
