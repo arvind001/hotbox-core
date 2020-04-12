@@ -9,7 +9,7 @@ cryptography==2.0.2
 decorator==4.1.2
 dict-digger==0.2.1
 docopt==0.6.2
-Flask==0.12.2
+Flask==1.0
 Flask-GoogleMaps==0.2.4
 Flask-RESTful==0.3.8
 geocoder==1.23.2
