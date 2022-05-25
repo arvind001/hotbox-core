@@ -28,7 +28,7 @@ oauth2==1.9.0.post1
 oauthlib==2.0.2
 pipreqs==0.4.10
 pycparser==2.18
-PyJWT==1.5.2
+PyJWT==2.4.0
 python-dateutil==2.6.1
 pytz==2019.3
 pywin32-ctypes==0.1.2
